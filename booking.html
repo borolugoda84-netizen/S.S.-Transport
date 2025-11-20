@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Now - S.S. Transport</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    :root { --primary: #0075ff; --bg: #0f0f1a; --text: #e0e7ff; --glass: rgba(15,15,26,0.92); --border: rgba(0,117,255,0.4); --glow: 0 0 40px rgba(0,117,255,0.6); }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Satoshi',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding-top:120px; display:flex; flex-direction:column; align-items:center; }
+    header { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:1000; width:95%; max-width:1500px; }
+    .nav-glass { background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:60px; padding:18px 50px; box-shadow:var(--glow); display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:2.4rem; font-weight:800; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .nav-links a { margin:0 28px; text-decoration:none; color:var(--text); font-weight:500; position:relative; }
+    .nav-links a::after { content:''; position:absolute; width:0; height:3px; bottom:-10px; left:50%; background:linear-gradient(90deg,#0075ff,#00d4ff); transition:.4s; border-radius:2px; }
+    .nav-links a:hover::after { width:100%; left:0; }
+
+    .booking-wrapper { margin-top:60px; width:90%; max-width:500px; }
+    .booking-card { background:var(--glass); backdrop-filter:blur(25px); border-radius:40px; padding:50px 40px; border:2px solid rgba(0,117,255,0.5); box-shadow:var(--glow); }
+    h1 { font-size:3.2rem; text-align:center; margin-bottom:50px; background:linear-gradient(135deg,#00d4ff,#0075ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:800; }
+
+    .form-group { margin-bottom:28px; }
+    label { display:block; margin-bottom:12px; font-weight:600; font-size:1.1rem; color:#ddd; }
+    input, select { width:100%; padding:18px 20px; border-radius:20px; border:none; background:rgba(255,255,255,0.08); color:var(--text); font-size:1.1rem; backdrop-filter:blur(10px); }
+    input:focus, select:focus { outline:none; box-shadow:0 0 20px rgba(0,117,255,0.6); }
+
+    .total-price { text-align:center; font-size:2rem; font-weight:800; margin:35px 0; padding:20px; background:rgba(0,117,255,0.25); border-radius:25px; color:#00d4ff; }
+
+    .btn-whatsapp { width:100%; padding:22px; font-size:1.6rem; background:#25d366; color:white; border:none; border-radius:60px; cursor:pointer; box-shadow:0 15px 40px rgba(37,211,102,.5); transition:all .4s; display:flex; align-items:center; justify-content:center; gap:15px; font-weight:700; margin-top:10px; }
+    .btn-whatsapp i { font-size:1.8rem; }
+    .btn-whatsapp:hover:not(:disabled) { background:#20c45a; transform:translateY(-8px); box-shadow:0 25px 60px rgba(37,211,102,.7); }
+    .btn-whatsapp:disabled { opacity:0.7; cursor:not-allowed; }
+
+    .success-message { text-align:center; padding:25px; background:#25d366; color:white; border-radius:20px; margin-top:20px; font-size:1.3rem; display:none; box-shadow:0 0 30px rgba(37,211,102,.6); line-height:1.6; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-glass">
+      <div class="logo">S.S. Transport</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Our Fleet</a>
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="booking-wrapper">
+    <div class="booking-card">
+      <h1>Book Your Car</h1>
+
+      <form id="bookingForm">
+        <div class="form-group">
+          <label>Select Car</label>
+          <select id="carSelect" required>
+            <option value="" disabled selected>Choose your car</option>
+            <option value="15000|Toyota CHR - LKR 15,000/day">Toyota CHR - LKR 15,000/day</option>
+            <option value="35000|Toyota Land Cruiser Prado - LKR 35,000/day">Toyota Land Cruiser Prado - LKR 35,000/day</option>
+            <option value="6500|Suzuki Wagon R - LKR 6,500/day">Suzuki Wagon R - LKR 6,500/day</option>
+            <option value="16000|Honda Vezel - LKR 16,000/day">Honda Vezel - LKR 16,000/day</option>
+            <option value="8000|Toyota Aqua - LKR 8,000/day">Toyota Aqua - LKR 8,000/day</option>
+            <option value="12000|Toyota Premio - LKR 12,000/day">Toyota Premio - LKR 12,000/day</option>
+            <option value="8500|Honda Fit GP5 - LKR 8,500/day">Honda Fit GP5 - LKR 8,500/day</option>
+            <option value="10000|Toyota Axio - LKR 10,000/day">Toyota Axio - LKR 10,000/day</option>
+            <option value="25000|Nissan X-Trail - LKR 25,000/day">Nissan X-Trail - LKR 25,000/day</option>
+            <option value="28000|Toyota HiAce Van (12 Seater) - LKR 28,000/day">Toyota HiAce Van (12 Seater) - LKR 28,000/day</option>
+            <option value="6000|Perodua Axia - LKR 6,000/day">Perodua Axia - LKR 6,000/day</option>
+            <option value="7500|Toyota Vitz - LKR 7,500/day">Toyota Vitz - LKR 7,500/day</option>
+          </select>
+        </div>
+
+        <div class="form-group"><label>Pickup Date</label><input type="date" id="pickup" required /></div>
+        <div class="form-group"><label>Return Date</label><input type="date" id="return" required /></div>
+        <div class="form-group"><label>Full Name</label><input type="text" id="name" required /></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="email" placeholder="you@example.com" required /></div>
+        <div class="form-group"><label>Phone (WhatsApp)</label><input type="tel" id="phone" placeholder="07xxxxxxxx" required /></div>
+
+        <div class="total-price">Total: <span id="total">LKR 0</span></div>
+
+        <button type="submit" class="btn-whatsapp">
+          <i class=""></i> <span>Confirm Booking</span>
+        </button>
+      </form>
+
+      <div class="success-message" id="successMsg">
+        <i class="fas fa-check-circle fa-2x"></i><br><br>
+        <strong>Booking Confirmed!</strong><br>
+        A confirmation email has been sent to <span id="sentEmail"></span><br>
+        We will contact you on WhatsApp shortly.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === REPLACE THESE 3 LINES ONLY ===
+    emailjs.init("hIBVxDDUG5flHhM5r");            // ← Your EmailJS Public Key
+    const SERVICE_ID = "service_rsqyjx8";            // ← Your Service ID (correct)
+    const TEMPLATE_ID = "template_pmdlale";         // ← Your Template ID (after saving)
+
+    const webhookURL = "https://discord.com/api/webhooks/1440888438667870239/bQYBxtiSyMwbFBbj2irDpJ3XeshESJQ5YpX4ZUmB5VmmG_ypOSAJfiuxx0nhAJ2760fi";
+
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('pickup').min = today;
+    document.getElementById('return').min = today;
+
+    function calculateTotal() {
+      const car = document.getElementById('carSelect').value;
+      const pickup = document.getElementById('pickup').value;
+      const ret = document.getElementById('return').value;
+      if (car && pickup && ret) {
+        const price = parseInt(car.split('|')[0]);
+        const days = Math.ceil((new Date(ret) - new Date(pickup)) / 86400000);
+        const total = days > 0 ? price * days : 0;
+        document.getElementById('total').textContent = 'LKR ' + total.toLocaleString();
+      } else {
+        document.getElementById('total').textContent = 'LKR 0';
+      }
+    }
+    document.querySelectorAll('#carSelect, #pickup, #return').forEach(el => el.addEventListener('change', calculateTotal));
+
+    document.getElementById('bookingForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const btn = document.querySelector('.btn-whatsapp');
+      const txt = btn.querySelector('span');
+      btn.disabled = true;
+      txt.textContent = 'Sending...';
+
+      const carText = document.getElementById('carSelect').options[document.getElementById('carSelect').selectedIndex].text;
+      const customerEmail = document.getElementById('email').value;
+
+      // Send Email Confirmation
+      try {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+          to_name: document.getElementById('name').value.trim(),
+          to_email: customerEmail,
+          car: carText.split(' - ')[0],
+          pickup_date: document.getElementById('pickup').value,
+          return_date: document.getElementById('return').value,
+          total_price: document.getElementById('total').textContent,
+          customer_phone: document.getElementById('phone').value
+        });
+      } catch (err) { console.log("Email failed", err); }
+
+      // Send Discord Alert
+      const payload = {
+        embeds: [{
+          title: "NEW CAR BOOKING!",
+          color: 0x00ff00,
+          fields: [
+            { name: "Name", value: document.getElementById('name').value, inline: true },
+            { name: "Email", value: customerEmail, inline: true },
+            { name: "Phone", value: `[${document.getElementById('phone').value}](https://wa.me/94${document.getElementById('phone').value.replace(/\D/g,'')})`, inline: true },
+            { name: "Car", value: carText.split(' - ')[0], inline: false },
+            { name: "Pickup", value: document.getElementById('pickup').value, inline: true },
+            { name: "Return", value: document.getElementById('return').value, inline: true },
+            { name: "Total", value: `**${document.getElementById('total').textContent}**`, inline: false }
+          ],
+          timestamp: new Date().toISOString(),
+          footer: { text: "S.S. Transport" }
+        }]
+      };
+
+      try {
+        await fetch(webhookURL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        document.getElementById('sentEmail').textContent = customerEmail;
+        document.getElementById('successMsg').style.display = 'block';
+        setTimeout(() => document.getElementById('successMsg').style.display = 'none', 10000);
+        e.target.reset();
+        document.getElementById('total').textContent = 'LKR 0';
+      } catch (err) {
+        alert("No connection – please try again");
+      } finally {
+        btn.disabled = false;
+        txt.textContent = 'Confirm Booking';
+      }
+    };
+  </script>
+</body>
+</html>

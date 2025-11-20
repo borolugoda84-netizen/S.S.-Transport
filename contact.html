@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - S.S. Transport</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    :root { --primary: #0075ff; --bg: #0f0f1a; --text: #e0e7ff; --glass: rgba(15,15,26,0.92); --border: rgba(0,117,255,0.4); --glow: 0 0 40px rgba(0,117,255,0.6); }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Satoshi',sans-serif; background:var(--bg); color:var(--text); padding-top:120px; min-height:100vh; }
+    header { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:1000; width:95%; max-width:1500px; }
+    .nav-glass { background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:60px; padding:18px 50px; box-shadow:var(--glow); display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:2.4rem; font-weight:800; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .nav-links a { margin:0 28px; text-decoration:none; color:var(--text); font-weight:500; position:relative; }
+    .nav-links a::after { content:''; position:absolute; width:0; height:3px; bottom:-10px; left:50%; background:linear-gradient(90deg,#0075ff,#00d4ff); transition:.4s; border-radius:2px; }
+    .nav-links a:hover::after { width:100%; left:0; }
+    .hero-title { text-align:center; padding:40px 20px 60px; font-size:4.5rem; font-weight:800; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .contact-container { max-width:1200px; margin:0 auto 100px; padding:0 5%; display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+    .contact-info { display:flex; flex-direction:column; gap:30px; }
+    .info-card { background:var(--glass); backdrop-filter:blur(20px); padding:35px; border-radius:32px; border:1px solid var(--border); box-shadow:var(--glow); display:flex; align-items:center; gap:25px; }
+    .info-card i { font-size:3rem; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .info-card h3 { font-size:1.8rem; margin-bottom:10px; }
+    .contact-form-card { background:var(--glass); backdrop-filter:blur(20px); padding:50px; border-radius:32px; border:1px solid var(--border); box-shadow:var(--glow); }
+    .form-group { margin-bottom:25px; }
+    label { display:block; margin-bottom:12px; font-weight:600; font-size:1.1rem; }
+    input, textarea { width:100%; padding:18px; border-radius:16px; border:2px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05); color:var(--text); font-size:1.1rem; resize:vertical; }
+    textarea { min-height:180px; }
+    .btn-send { width:100%; padding:20px; font-size:1.5rem; background:#0075ff; color:white; border:none; border-radius:60px; cursor:pointer; box-shadow:0 15px 40px rgba(0,117,255,.4); transition:all .4s; margin-top:20px; display:flex; align-items:center; justify-content:center; gap:12px; }
+    .btn-send:hover:not(:disabled) { transform:translateY(-8px); box-shadow:0 25px 60px rgba(0,117,255,.6); }
+    .btn-send:disabled { opacity:0.7; cursor:not-allowed; }
+    .map { margin-top:80px; border-radius:32px; overflow:hidden; box-shadow:var(--glow); }
+    .map iframe { width:100%; height:500px; border:none; }
+    .success-message { text-align:center; padding:20px; background:#25d366; color:white; border-radius:20px; margin-top:20px; font-size:1.3rem; font-weight:600; display:none; box-shadow:0 0 30px rgba(37,211,102,.6); }
+    @media (max-width:992px) { .contact-container { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-glass">
+      <div class="logo">S.S. Transport</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Our Fleet</a>
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <h1 class="hero-title">Contact Us</h1>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="info-card">
+        <i class="fas fa-phone-alt"></i>
+        <div>
+          <h3>Call or WhatsApp</h3>
+          <p style="font-size:1.4rem; margin:8px 0;"><strong>076 232 9300</strong></p>
+          <p style="font-size:1.4rem;"><strong>076 015 0338</strong></p>
+        </div>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h3>Location</h3>
+          <p style="font-size:1.2rem;">Colombo, Sri Lanka<br>Island-wide Delivery Available</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-clock"></i>
+        <div>
+          <h3>24/7 Support</h3>
+          <p style="font-size:1.2rem;">We reply instantly on WhatsApp</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h2 style="font-size:2.5rem; margin-bottom:30px; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+        Send us a Message
+      </h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="07xxxxxxxx" required />
+        </div>
+        <div class="form-group">
+          <label>Email (optional)</label>
+          <input type="email" id="email" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="message" required placeholder="How can we help you today?"></textarea>
+        </div>
+
+        <button type="submit" id="sendBtn" class="btn-send">
+          <i class="fas fa-paper-plane"></i> <span>Send Message</span>
+        </button>
+      </form>
+
+      <div class="success-message" id="successMsg">
+        <i class="fas fa-check-circle"></i> Message sent! We'll contact you shortly on WhatsApp.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // FIXED & WORKING WEBHOOK
+    const webhookURL = "https://discord.com/api/webhooks/1440888438667870239/bQYBxtiSyMwbFBbj2irDpJ3XeshESJQ5YpX4ZUmB5VmmG_ypOSAJfiuxx0nhAJ2760fi";
+
+    document.getElementById('contactForm').onsubmit = async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !message) {
+        alert('Please fill in Name, Phone and Message!');
+        return;
+      }
+
+      const btn = document.getElementById('sendBtn');
+      const txt = btn.querySelector('span');
+      btn.disabled = true;
+      txt.textContent = 'Sending...';
+
+      const payload = {
+        embeds: [{
+          title: "NEW CONTACT FORM MESSAGE!",
+          description: "**S.S. Transport – Website Inquiry**",
+          color: 0x00ff00,
+          fields: [
+            { name: "Customer Name", value: name, inline: true },
+            { name: "Phone (WhatsApp)", value: `[${phone}](https://wa.me/94${phone.replace(/\D/g,'')})`, inline: true },
+            { name: "Email", value: email || "—not provided—", inline: true },
+            { name: "Message", value: message, inline: false }
+          ],
+          timestamp: new Date().toISOString(),
+          footer: { text: "S.S. Transport • Instant Notification" }
+        }]
+      };
+
+      try {
+        await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        document.getElementById('successMsg').style.display = 'block';
+        setTimeout(() => document.getElementById('successMsg').style.display = 'none', 8000);
+        e.target.reset();
+      } catch (err) {
+        alert("No internet – please WhatsApp us directly: 076 232 9300");
+      } finally {
+        btn.disabled = false;
+        txt.textContent = 'Send Message';
+      }
+    };
+  </script>
+</body>
+</html>

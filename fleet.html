@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Fleet - S.S. Transport</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    :root { --primary: #0075ff; --bg: #0f0f1a; --text: #e0e7ff; --glass: rgba(15,15,26,0.85); --border: rgba(0,117,255,0.3); --glow: 0 0 30px rgba(0,117,255,0.5); }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Satoshi',sans-serif; background:var(--bg); color:var(--text); padding-top:120px; min-height:100vh; }
+    header { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:1000; width:95%; max-width:1500px; }
+    .nav-glass { background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:60px; padding:18px 50px; box-shadow:var(--glow); display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:2.4rem; font-weight:800; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .nav-links a { margin:0 28px; text-decoration:none; color:var(--text); font-weight:500; position:relative; }
+    .nav-links a::after { content:''; position:absolute; width:0; height:3px; bottom:-10px; left:50%; background:linear-gradient(90deg,#0075ff,#00d4ff); transition:.4s; border-radius:2px; }
+    .nav-links a:hover::after { width:100%; left:0; }
+    .hero-title { text-align:center; padding:40px 20px 60px; font-size:4.5rem; font-weight:800; background:linear-gradient(135deg,#0075ff,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .fleet-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:40px; padding:0 5% 100px; max-width:1800px; margin:0 auto; }
+    .car-card { background:var(--glass); backdrop-filter:blur(20px); border-radius:32px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--glow); transition:all .6s ease; }
+    .car-card:hover { transform:translateY(-15px); box-shadow:0 30px 80px rgba(0,117,255,0.6); }
+    .car-img { width:100%; height:240px; object-fit:cover; }
+    .car-info { padding:25px; text-align:center; }
+    .car-info h3 { font-size:1.8rem; margin-bottom:8px; }
+    .car-info p { opacity:0.9; margin-bottom:15px; }
+    .price { font-size:1.8rem; font-weight:800; color:#00d4ff; margin:15px 0; }
+    .btn-group { display:flex; gap:15px; justify-content:center; margin-top:20px; }
+    .btn { padding:12px 24px; border-radius:60px; font-weight:600; text-decoration:none; transition:.4s; font-size:1rem; }
+    .btn-primary { background:#25d366; color:white; display:flex; align-items:center; gap:8px; }
+    .btn-primary:hover { background:#20b858; transform:translateY(-4px); }
+    @media (max-width:768px) { .btn-group { flex-direction:column; } .btn { width:100%; justify-content:center; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-glass">
+      <div class="logo">S.S. Transport</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Our Fleet</a>
+        <a href="booking.html">Book Now</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <h1 class="hero-title">Our Premium Fleet</h1>
+
+  <div class="fleet-grid">
+    <!-- 1. Toyota CHR -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1609527259762-7b9f7e8f2b0d?q=80&w=800" alt="Toyota CHR" class="car-img">
+      <div class="car-info">
+        <h3>Toyota CHR</h3>
+        <p>2023 • Hybrid SUV • Premium</p>
+        <div class="price">LKR 15,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20CHR" class="btn btn-primary">
+            <i class=""></i> Book Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Toyota Prado -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1606660268488-33f0f0e8f7c6?q=80&w=800" alt="Toyota Prado" class="car-img">
+      <div class="car-info">
+        <h3>Toyota Land Cruiser Prado</h3>
+        <p>2023 • Diesel • 7 Seater • 4WD</p>
+        <div class="price">LKR 35,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20Land%20Cruiser%20Prado" class="btn btn-primary">
+            <i class=""></i> Book Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suzuki Wagon R -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800" alt="Suzuki Wagon R" class="car-img">
+      <div class="car-info">
+        <h3>Suzuki Wagon R</h3>
+        <p>2023 • Petrol • Compact • Budget</p>
+        <div class="price">LKR 6,500 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Suzuki%20Wagon%20R" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honda Vezel -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8e899fcce?q=80&w=800" alt="Honda Vezel" class="car-img">
+      <div class="car-info">
+        <h3>Honda Vezel</h3>
+        <p>2023 • Hybrid SUV • Stylish</p>
+        <div class="price">LKR 16,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Honda%20Vezel" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toyota Aqua -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800" alt="Toyota Aqua" class="car-img">
+      <div class="car-info">
+        <h3>Toyota Aqua</h3>
+        <p>2023 • Hybrid • Fuel Saver</p>
+        <div class="price">LKR 8,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20Aqua" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toyota Premio -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1544636331-94a3c29a2edd?q=80&w=800" alt="Toyota Premio" class="car-img">
+      <div class="car-info">
+        <h3>Toyota Premio</h3>
+        <p>2023 • Luxury Sedan • Comfort</p>
+        <div class="price">LKR 12,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20Premio" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honda Fit GP5 -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800" alt="Honda Fit GP5" class="car-img">
+      <div class="car-info">
+        <h3>Honda Fit GP5</h3>
+        <p>2022 • Hybrid • Sporty Hatchback</p>
+        <div class="price">LKR 8,500 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Honda%20Fit%20GP5" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toyota Axio -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1606660268488-33f0f0e8f7c6?q=80&w=800" alt="Toyota Axio" class="car-img">
+      <div class="car-info">
+        <h3>Toyota Axio</h3>
+        <p>2022 • Sedan • Reliable</p>
+        <div class="price">LKR 10,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20Axio" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nissan X-Trail -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1609527259762-7b9f7e8f2b0d?q=80&w=800" alt="Nissan X-Trail" class="car-img">
+      <div class="car-info">
+        <h3>Nissan X-Trail</h3>
+        <p>2023 • SUV • 4WD • Adventure</p>
+        <div class="price">LKR 25,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Nissan%20X-Trail" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toyota HiAce Van -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1583121274773-7f6d2c4c43ce?q=80&w=800" alt="Toyota HiAce Van" class="car-img">
+      <div class="car-info">
+        <h3>Toyota HiAce Van (12 Seater)</h3>
+        <p>2023 • Diesel • Group Travel</p>
+        <div class="price">LKR 28,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20HiAce%20Van" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perodua Axia -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1493238792200-90fc5f7b64d4?q=80&w=800" alt="Perodua Axia" class="car-img">
+      <div class="car-info">
+        <h3>Perodua Axia</h3>
+        <p>2023 • Petrol • Super Economy</p>
+        <div class="price">LKR 6,000 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Perodua%20Axia" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toyota Vitz -->
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=800" alt="Toyota Vitz" class="car-img">
+      <div class="car-info">
+        <h3>Toyota Vitz</h3>
+        <p>2022 • City Car • Compact</p>
+        <div class="price">LKR 7,500 /day</div>
+        <div class="btn-group">
+          <a href="booking.html?car=Toyota%20Vitz" class="btn btn-primary"><i class=""></i> Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
